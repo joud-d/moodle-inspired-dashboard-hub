@@ -22,99 +22,103 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 px-4">
-      <div className="w-full max-w-md">
-        {/* University Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center mb-4">
-            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center">
-              <GraduationCap className="w-10 h-10 text-white" />
-            </div>
+    <div className="min-h-screen flex flex-col bg-gray-50">
+      {/* University Header */}
+      <div className="bg-red-700 w-full py-4">
+        <div className="container mx-auto px-4 flex items-center">
+          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+            <GraduationCap className="w-10 h-10 text-red-700" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Jordan University</h1>
-          <p className="text-gray-600">Student Learning Management System</p>
+          <div className="ml-4">
+            <h1 className="text-2xl font-bold text-white">Jordan University</h1>
+            <p className="text-white text-opacity-90">Student Learning Management System</p>
+          </div>
         </div>
-
-        {/* Login Card */}
-        <Card className="shadow-lg border-0">
-          <CardHeader className="space-y-1 pb-6">
-            <CardTitle className="text-2xl font-semibold text-center text-gray-900">
-              Sign In
-            </CardTitle>
-            <CardDescription className="text-center text-gray-600">
-              Enter your credentials to access your courses
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium text-gray-700">
-                  Email Address
-                </Label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="student@ju.edu.jo"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10 h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="password" className="text-sm font-medium text-gray-700">
-                  Password
-                </Label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                  <Input
-                    id="password"
-                    type="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10 h-12 border-gray-200 focus:border-blue-500 focus:ring-blue-500"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <input
-                    id="remember"
-                    type="checkbox"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                  />
-                  <Label htmlFor="remember" className="text-sm text-gray-600">
-                    Remember me
+      </div>
+      
+      <div className="flex-1 flex items-center justify-center px-4 py-12">
+        <div className="w-full max-w-md">
+          {/* Login Card */}
+          <Card className="shadow-lg border-0">
+            <CardHeader className="space-y-1 pb-6">
+              <CardTitle className="text-2xl font-semibold text-center text-gray-900">
+                Sign In to Student Portal
+              </CardTitle>
+              <CardDescription className="text-center text-gray-600">
+                Enter your credentials to access your courses
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+                    Email Address
                   </Label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="student@ju.edu.jo"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="pl-10 h-12 border-gray-200 focus:border-red-500 focus:ring-red-500"
+                      required
+                    />
+                  </div>
                 </div>
-                <Link
-                  to="/forgot-password"
-                  className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+
+                <div className="space-y-2">
+                  <Label htmlFor="password" className="text-sm font-medium text-gray-700">
+                    Password
+                  </Label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+                    <Input
+                      id="password"
+                      type="password"
+                      placeholder="Enter your password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="pl-10 h-12 border-gray-200 focus:border-red-500 focus:ring-red-500"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <input
+                      id="remember"
+                      type="checkbox"
+                      className="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded"
+                    />
+                    <Label htmlFor="remember" className="text-sm text-gray-600">
+                      Remember me
+                    </Label>
+                  </div>
+                  <Link
+                    to="/forgot-password"
+                    className="text-sm text-red-600 hover:text-red-800 hover:underline"
+                  >
+                    Forgot password?
+                  </Link>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full h-12 bg-red-600 hover:bg-red-700 text-white font-medium transition-colors"
                 >
-                  Forgot password?
-                </Link>
-              </div>
+                  Sign In
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
 
-              <Button
-                type="submit"
-                className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors"
-              >
-                Sign In
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-
-        {/* Footer */}
-        <div className="text-center mt-8 text-sm text-gray-500">
-          <p>© 2024 Jordan University. All rights reserved.</p>
+          {/* Footer */}
+          <div className="text-center mt-8 text-sm text-gray-500">
+            <p>© 2024 Jordan University. All rights reserved.</p>
+          </div>
         </div>
       </div>
     </div>
