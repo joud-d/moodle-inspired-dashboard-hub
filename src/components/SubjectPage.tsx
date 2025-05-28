@@ -1,8 +1,8 @@
-
 import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import ExamWarningDialog from './ExamWarningDialog';
+import ExamVerificationDialog from './ExamVerificationDialog';
 import { toast } from '@/hooks/use-toast';
 import { subjectData } from '@/utils/subjectData';
 import { getStatusColor, getTypeColor, formatDate, getDaysUntil } from '@/utils/examUtils';
@@ -16,7 +16,8 @@ const SubjectPage: React.FC = () => {
   const { subjectId } = useParams<{ subjectId: string }>();
   const subject = subjectData[subjectId as keyof typeof subjectData];
   const [selectedExam, setSelectedExam] = useState<any>(null);
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [verificationDialogOpen, setVerificationDialogOpen] = useState(false);
+  const [warningDialogOpen, setWarningDialogOpen] = useState(false);
 
   if (!subject) {
     return (
@@ -33,7 +34,12 @@ const SubjectPage: React.FC = () => {
   
   const handleExamClick = (exam: any) => {
     setSelectedExam(exam);
-    setDialogOpen(true);
+    setVerificationDialogOpen(true);
+  };
+  
+  const handleVerificationComplete = () => {
+    setVerificationDialogOpen(false);
+    setWarningDialogOpen(true);
   };
   
   const handleProceed = () => {
@@ -81,11 +87,20 @@ const SubjectPage: React.FC = () => {
         </main>
       </div>
       
+      {/* Verification Dialog */}
+      {selectedExam && (
+        <ExamVerificationDialog 
+          open={verificationDialogOpen} 
+          onOpenChange={setVerificationDialogOpen}
+          onVerificationComplete={handleVerificationComplete}
+        />
+      )}
+      
       {/* Exam Warning Dialog */}
       {selectedExam && (
         <ExamWarningDialog 
-          open={dialogOpen} 
-          onOpenChange={setDialogOpen}
+          open={warningDialogOpen} 
+          onOpenChange={setWarningDialogOpen}
           examName={selectedExam.name}
           onProceed={handleProceed}
         />
