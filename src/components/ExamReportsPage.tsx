@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { GraduationCap, BookOpen, Calendar, Users, LogOut, User, Home, Timer, ArrowLeft, FileText, AlertTriangle, CheckCircle, Clock } from 'lucide-react';
+import { GraduationCap, BookOpen, Calendar, Users, LogOut, User, Home, Timer, ArrowLeft, FileText } from 'lucide-react';
 import { examReportsData } from '@/utils/professorData';
 
 interface ExamReportsPageProps {
@@ -19,36 +19,6 @@ const ExamReportsPage: React.FC<ExamReportsPageProps> = ({ onLogout }) => {
 
   const handleDecisionChange = (studentId: string, decision: string) => {
     setDecisions(prev => ({ ...prev, [studentId]: decision }));
-  };
-
-  const getSeverityIcon = (report: string) => {
-    if (report.includes('HIGH') && report.includes('Multiple violations')) {
-      return <AlertTriangle className="w-5 h-5 text-red-500" />;
-    } else if (report.includes('No suspicious behavior')) {
-      return <CheckCircle className="w-5 h-5 text-green-500" />;
-    } else {
-      return <Clock className="w-5 h-5 text-yellow-500" />;
-    }
-  };
-
-  const getSeverityText = (report: string) => {
-    if (report.includes('HIGH') && report.includes('Multiple violations')) {
-      return 'High Risk';
-    } else if (report.includes('No suspicious behavior')) {
-      return 'No Issues';
-    } else {
-      return 'Low Risk';
-    }
-  };
-
-  const getSeverityColor = (report: string) => {
-    if (report.includes('HIGH') && report.includes('Multiple violations')) {
-      return 'bg-red-100 text-red-800';
-    } else if (report.includes('No suspicious behavior')) {
-      return 'bg-green-100 text-green-800';
-    } else {
-      return 'bg-yellow-100 text-yellow-800';
-    }
   };
 
   return (
@@ -142,7 +112,6 @@ const ExamReportsPage: React.FC<ExamReportsPageProps> = ({ onLogout }) => {
                       <TableRow>
                         <TableHead>Student Name</TableHead>
                         <TableHead>Student ID</TableHead>
-                        <TableHead>AI Summary</TableHead>
                         <TableHead>Final Decision</TableHead>
                         <TableHead>Actions</TableHead>
                       </TableRow>
@@ -152,14 +121,6 @@ const ExamReportsPage: React.FC<ExamReportsPageProps> = ({ onLogout }) => {
                         <TableRow key={report.studentId}>
                           <TableCell className="font-medium">{report.studentName}</TableCell>
                           <TableCell>{report.studentId}</TableCell>
-                          <TableCell>
-                            <div className="flex items-center space-x-2">
-                              {getSeverityIcon(report.cheatingReport)}
-                              <span className={`px-2 py-1 rounded-full text-xs font-medium ${getSeverityColor(report.cheatingReport)}`}>
-                                {getSeverityText(report.cheatingReport)}
-                              </span>
-                            </div>
-                          </TableCell>
                           <TableCell>
                             <select
                               value={decisions[report.studentId] || ''}

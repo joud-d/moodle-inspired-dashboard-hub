@@ -5,9 +5,15 @@ import LoginPage from '../components/LoginPage';
 import ForgotPasswordPage from '../components/ForgotPasswordPage';
 import HomePage from '../components/HomePage';
 import SubjectPage from '../components/SubjectPage';
+import SettingsPage from '../components/SettingsPage';
+import AnalyticsPage from '../components/AnalyticsPage';
+import SchedulePage from '../components/SchedulePage';
 import ProfessorLoginPage from '../components/ProfessorLoginPage';
 import ProfessorForgotPasswordPage from '../components/ProfessorForgotPasswordPage';
 import ProfessorHomePage from '../components/ProfessorHomePage';
+import ProfessorSettingsPage from '../components/ProfessorSettingsPage';
+import ProfessorAnalyticsPage from '../components/ProfessorAnalyticsPage';
+import ProfessorSchedulePage from '../components/ProfessorSchedulePage';
 import CourseExamsPage from '../components/CourseExamsPage';
 import ExamReportsPage from '../components/ExamReportsPage';
 
@@ -44,6 +50,30 @@ const Index = () => {
             <Navigate to="/login" replace />
           } 
         />
+        <Route 
+          path="/settings" 
+          element={
+            isAuthenticated ? 
+            <SettingsPage /> : 
+            <Navigate to="/login" replace />
+          } 
+        />
+        <Route 
+          path="/analytics" 
+          element={
+            isAuthenticated ? 
+            <AnalyticsPage /> : 
+            <Navigate to="/login" replace />
+          } 
+        />
+        <Route 
+          path="/schedule" 
+          element={
+            isAuthenticated ? 
+            <SchedulePage /> : 
+            <Navigate to="/login" replace />
+          } 
+        />
 
         {/* Professor Portal Routes */}
         <Route 
@@ -76,6 +106,30 @@ const Index = () => {
           element={
             isProfessorAuthenticated ? 
             <ExamReportsPage onLogout={() => setIsProfessorAuthenticated(false)} /> : 
+            <Navigate to="/professor/login" replace />
+          } 
+        />
+        <Route 
+          path="/professor/settings" 
+          element={
+            isProfessorAuthenticated ? 
+            <ProfessorSettingsPage onLogout={() => setIsProfessorAuthenticated(false)} /> : 
+            <Navigate to="/professor/login" replace />
+          } 
+        />
+        <Route 
+          path="/professor/analytics" 
+          element={
+            isProfessorAuthenticated ? 
+            <ProfessorAnalyticsPage onLogout={() => setIsProfessorAuthenticated(false)} /> : 
+            <Navigate to="/professor/login" replace />
+          } 
+        />
+        <Route 
+          path="/professor/schedule" 
+          element={
+            isProfessorAuthenticated ? 
+            <ProfessorSchedulePage onLogout={() => setIsProfessorAuthenticated(false)} /> : 
             <Navigate to="/professor/login" replace />
           } 
         />
