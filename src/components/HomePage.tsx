@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -99,21 +98,17 @@ const HomePage: React.FC<HomePageProps> = ({ onLogout }) => {
             <Home className="w-6 h-6" />
             <span className="ml-4 hidden md:inline">Home</span>
           </Link>
-          <Link to="#" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
-            <Timer className="w-6 h-6" />
-            <span className="ml-4 hidden md:inline">Exams</span>
-          </Link>
-          <Link to="#" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
+          <Link to="/schedule" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
             <Calendar className="w-6 h-6" />
             <span className="ml-4 hidden md:inline">Schedule</span>
           </Link>
-          <Link to="#" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
+          <Link to="/analytics" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
             <BookOpen className="w-6 h-6" />
-            <span className="ml-4 hidden md:inline">Resources</span>
+            <span className="ml-4 hidden md:inline">Analytics</span>
           </Link>
-          <Link to="#" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
+          <Link to="/settings" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
             <GraduationCap className="w-6 h-6" />
-            <span className="ml-4 hidden md:inline">Grades</span>
+            <span className="ml-4 hidden md:inline">Settings</span>
           </Link>
         </div>
       </div>
