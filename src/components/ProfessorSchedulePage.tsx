@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -86,19 +85,15 @@ const ProfessorSchedulePage: React.FC<ProfessorSchedulePageProps> = ({ onLogout 
             <Home className="w-6 h-6" />
             <span className="ml-4 hidden md:inline">Home</span>
           </Link>
-          <Link to="#" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
-            <Timer className="w-6 h-6" />
-            <span className="ml-4 hidden md:inline">Exam Reports</span>
-          </Link>
-          <Link to="#" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100 bg-gray-100">
+          <Link to="/professor/schedule" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100 bg-gray-100">
             <Calendar className="w-6 h-6" />
             <span className="ml-4 hidden md:inline">Schedule</span>
           </Link>
-          <Link to="#" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
+          <Link to="/professor/analytics" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
             <BookOpen className="w-6 h-6" />
             <span className="ml-4 hidden md:inline">Analytics</span>
           </Link>
-          <Link to="#" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
+          <Link to="/professor/settings" className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100">
             <GraduationCap className="w-6 h-6" />
             <span className="ml-4 hidden md:inline">Settings</span>
           </Link>

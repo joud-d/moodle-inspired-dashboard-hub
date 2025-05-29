@@ -30,13 +30,6 @@ const Sidebar: React.FC = () => {
           <span className="ml-4 hidden md:inline">Home</span>
         </Link>
         <Link 
-          to="#" 
-          className="flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100"
-        >
-          <Timer className="w-6 h-6" />
-          <span className="ml-4 hidden md:inline">Exams</span>
-        </Link>
-        <Link 
           to="/schedule" 
           className={`flex items-center justify-center md:justify-start px-4 py-3 text-gray-700 hover:bg-gray-100 ${
             location.pathname === '/schedule' ? 'bg-gray-100' : ''
