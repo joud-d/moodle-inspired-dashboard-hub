@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import ExamWarningDialog from './ExamWarningDialog';
 import ExamVerificationDialog from './ExamVerificationDialog';
@@ -14,6 +15,7 @@ import ExamCard from './ExamCard';
 
 const SubjectPage: React.FC = () => {
   const { subjectId } = useParams<{ subjectId: string }>();
+  const navigate = useNavigate();
   const subject = subjectData[subjectId as keyof typeof subjectData];
   const [selectedExam, setSelectedExam] = useState<any>(null);
   const [verificationDialogOpen, setVerificationDialogOpen] = useState(false);
@@ -47,6 +49,9 @@ const SubjectPage: React.FC = () => {
       title: "Exam Started",
       description: `You have started the ${selectedExam?.name}. Good luck!`,
     });
+    
+    // Navigate to the exam page
+    navigate(`/exam/${subjectId}`);
   };
 
   return (

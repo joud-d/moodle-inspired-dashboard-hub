@@ -5,6 +5,7 @@ import LoginPage from '../components/LoginPage';
 import ForgotPasswordPage from '../components/ForgotPasswordPage';
 import HomePage from '../components/HomePage';
 import SubjectPage from '../components/SubjectPage';
+import ExamPage from '../components/ExamPage';
 import SettingsPage from '../components/SettingsPage';
 import AnalyticsPage from '../components/AnalyticsPage';
 import SchedulePage from '../components/SchedulePage';
@@ -47,6 +48,14 @@ const Index = () => {
           element={
             isAuthenticated ? 
             <SubjectPage /> : 
+            <Navigate to="/login" replace />
+          } 
+        />
+        <Route 
+          path="/exam/:subjectId" 
+          element={
+            isAuthenticated ? 
+            <ExamPage /> : 
             <Navigate to="/login" replace />
           } 
         />
