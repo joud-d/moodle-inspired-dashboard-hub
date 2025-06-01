@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -70,7 +71,7 @@ const ProfessorSettingsPage: React.FC<ProfessorSettingsPageProps> = ({ onLogout 
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2 text-sm text-white">
                   <User className="w-4 h-4" />
-                  <span>Dr. Ahmad Hassan</span>
+                  <span>Tamam Alsarhan</span>
                 </div>
                 <Button
                   onClick={onLogout}
@@ -101,11 +102,11 @@ const ProfessorSettingsPage: React.FC<ProfessorSettingsPageProps> = ({ onLogout 
               <CardContent className="space-y-4">
                 <div>
                   <Label htmlFor="fullName">Full Name</Label>
-                  <Input id="fullName" defaultValue="Dr. Ahmad Hassan" />
+                  <Input id="fullName" defaultValue="Tamam Alsarhan" />
                 </div>
                 <div>
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" defaultValue="ahmad.hassan@ju.edu.jo" />
+                  <Input id="email" defaultValue="tamam.alsarhan@ju.edu.jo" />
                 </div>
                 <div>
                   <Label htmlFor="employeeId">Employee ID</Label>

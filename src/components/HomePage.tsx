@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,7 +14,7 @@ const subjects = [
     id: 'cs101',
     name: 'INTRODUCTION TO COMPUTER SCIENCE',
     code: 'CS 101',
-    instructor: 'Dr. Ahmad Hassan',
+    instructor: 'Tamam Alsarhan',
     credits: 3,
     color: 'bg-red-500',
     department: 'King Abdullah II School of Information Technology',
@@ -123,7 +124,7 @@ const HomePage: React.FC<HomePageProps> = ({ onLogout }) => {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2 text-sm text-white">
                   <User className="w-4 h-4" />
-                  <span>Ahmad Khaled</span>
+                  <span>Joud Dababneh</span>
                 </div>
                 <Button
                   onClick={onLogout}
@@ -143,7 +144,7 @@ const HomePage: React.FC<HomePageProps> = ({ onLogout }) => {
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Welcome Section */}
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, Ahmad!</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, Joud!</h2>
             <p className="text-gray-600">Here are your enrolled courses for Spring 2024</p>
           </div>
 
